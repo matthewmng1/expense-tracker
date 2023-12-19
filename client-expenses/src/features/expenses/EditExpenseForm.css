@@ -1,0 +1,89 @@
+.form-popup{
+  position: fixed;
+  background-color: rgb(24, 24, 24, .5);
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-expense-container{
+  margin: auto;
+  text-align: center;
+}
+
+.edit-expense-form {
+  width: 30em;
+  min-width: 30em;
+  padding: 1px;
+  background-color: white;
+  display: inline-block;
+  text-align: left;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 0px 20px 20px 20px;
+}
+
+.edit-expense-table{
+  width: 100%;
+  border: solid 0px black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.edit-expense-table-header{
+  border-bottom: solid 1px gray;
+}
+
+.edit-expense-item-title{
+  font-size: 1.5em;
+  padding: 5px;
+}
+
+.edit-expense-table th{
+  font-size: 1.8em;
+  font-weight: normal;
+  border-bottom: solid 1px gray;
+}
+
+.edit-expense-table th, .edit-expense-table td{
+  border: solid 0px blue;
+  padding: 2px;
+  text-align: left;
+
+}
+
+.edit-expense-table select, .edit-expense-table input{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: .5em;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.edit-expense-date-input,
+.edit-expense-description-input,
+.edit-expense-category-input,
+.edit-expense-amount-input,
+.edit-expense-payment-method-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.edit-expense-form-btn-container {
+  text-align: right;  
+}
+
+.edit-expense-form-save-btn,
+.edit-expense-form-cancel-btn {
+  float: inline-end;
+  padding: 8px;
+  margin: 5px;
+}

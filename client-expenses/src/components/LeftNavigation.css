@@ -1,0 +1,38 @@
+.left-nav-img-container{
+  text-align: center;
+  padding: 25px;
+}
+
+.left-nav-img-container img{
+  height: 85px;
+}
+
+.left-nav-container{
+  background-color: #6C0BA9;
+}
+
+.left-nav-container nav {
+  margin-left: 20px;
+}
+
+.left-nav{
+  position: fixed;
+}
+
+.nav-link {
+  text-align: left;
+  text-decoration: none;
+  color: rgb(214, 214, 214); /* Set the desired text color */
+  display: flex;
+  justify-content: left;
+  height: 100%;
+  font-size: 1.4em;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nav-link:hover{
+  color: black;
+  background-color: #D7A1F9;
+}

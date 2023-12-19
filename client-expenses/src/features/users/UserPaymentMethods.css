@@ -1,0 +1,106 @@
+
+
+.payment-method-add-form{
+  margin-left: 20px;
+}
+
+.new-payment-method-input{
+  width: 200px;
+  height: 25px;
+  font-size: 1.2em;
+  border-color: #6C0BA9;
+  border-radius: 5px;
+}
+
+.payment-method-add-btn{
+  background-color: rgb(60, 255, 60);
+  margin-top: 10px;
+  font-size: .9em;
+  margin-bottom: 10px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.payment-method-add-btn:hover{
+  background-color: rgb(60, 255, 60);
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.payment-method-cancel-btn{
+  margin-top: 10px;
+  font-size: .9em;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.payment-method-cancel-btn:hover{
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.new-payment-method-btn{
+  margin-bottom: 10px;
+  background-color: transparent;
+  font-size: 1.5em;
+  border: 0px;
+}
+
+.payment-method-container{
+  margin-left: 20px;
+}
+
+.user-payment-method{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 25px;
+  font-size: 1.2em;
+  pointer-events: none;
+  border: solid 2px black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.payment-method-confirm-remove-btn{
+  background-color: rgb(255, 132, 132);
+  margin-top: 10px;
+  font-size: .9em;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.payment-method-confirm-remove-btn:hover{
+  background-color: rgb(255, 132, 132);
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.payment-method-cancel-btn{
+  margin-top: 10px;
+  font-size: .9em;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.payment-method-cancel-btn:hover{
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.payment-method-remove-btn{
+  background-color: transparent;
+  border: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.payment-method-remove-btn:hover{
+  background-color: #D7A1F9;
+  filter: brightness(120);
+  text-decoration: underline;
+  border-radius: 5px;
+}

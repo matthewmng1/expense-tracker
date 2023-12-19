@@ -1,0 +1,53 @@
+.settings-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.settings-nav-container{
+  height: 90vh;
+  width: 200px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-nav-container > div {
+  flex: 1;
+}
+
+.settings-nav-container nav {
+  margin-top: auto;
+}
+
+.settings-nav{
+  padding-top: 60px;
+  background-color: #880ED4;
+}
+
+.settings-nav nav{
+  margin-left: 20px;
+}
+
+.settings-nav h1{
+  margin-left: 20px;
+}
+
+.settings-content{
+  flex: 1;
+  box-sizing: border-box;
+  margin-left: 20px
+}
+
+.settings-content-h1{
+  border-bottom: 1px solid black;
+}
+
+/* 
+app=container
+
+app-left-nav     app-content 
+left-nav-container
+
+
+
+
+*/

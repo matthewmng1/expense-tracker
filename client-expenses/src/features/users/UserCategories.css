@@ -1,0 +1,48 @@
+
+
+.categories-container{
+  margin-left: 20px;
+}
+
+.user-category{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 25px;
+  font-size: 1.2em;
+  pointer-events: none;
+  border: solid 2px black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.category-confirm-remove-btn{
+  background-color: rgb(255, 132, 132);
+}
+
+.category-remove-btn{
+  background-color: transparent;
+  border: 0px;
+}
+
+.new-category-input{
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 25px;
+  font-size: 1.2em;
+  border-color: #6C0BA9;
+  border-radius: 5px;
+}
+
+.category-add-btn{
+  background-color: rgb(60, 255, 60);
+
+}
+
+.new-category-btn{
+  margin-left: 20px;
+  background-color: transparent;
+  font-size: 1.5em;
+  border: 0px;
+}

@@ -1,0 +1,76 @@
+.form-popup{
+  position: fixed;
+  background-color: rgb(24, 24, 24, .5);
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-expense-container{
+  margin: auto;
+  text-align: center;
+}
+
+.new-expense-form {
+  width: 50em;
+  min-width: 30em;
+  padding: 1px;
+  background-color: white;
+  display: inline-block;
+  text-align: left;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 0px 20px 20px 20px;
+}
+
+.new-expense-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.new-expense-table th{
+  font-size: 1.8em;
+  font-weight: normal;
+  border-bottom: solid 1px gray;
+}
+
+.new-expense-table th, .new-expense-table td{
+  padding: 4px;
+  text-align: left;
+}
+
+.new-expense-table select, .new-expense-table input{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: .5em;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.new-expense-date-input,
+.new-expense-description-input,
+.new-expense-category-input,
+.new-expense-amount-input,
+.new-expense-paymentMethod-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.new-expense-form-btn-container {
+  text-align: right;  
+}
+
+.new-expense-form-save-btn,
+.new-expense-form-cancel-btn {
+  float: right;
+  padding: 8px;
+  margin: 5px;
+}

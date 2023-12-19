@@ -1,0 +1,45 @@
+.app-container{
+  display: flex;
+  flex-direction: row;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  min-width: 0;
+}
+
+.app-left-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  min-width: 200px;
+  width: 200px; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Add the following styles to prevent the blue background from overlapping with the content */
+.app-left-nav > div {
+  flex: 1;
+}
+
+.app-left-nav nav {
+  margin-top: auto;
+}
+
+.app-content {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 30px;
+  min-width: 1100px;
+  height: auto;
+  margin-left: 200px;
+  overflow-x: auto;
+}
+
+.app-main-content{
+  padding: 10px;
+  max-width: 100%;
+}
+
+.app-top-nav{
+  margin-top: 0;
+}

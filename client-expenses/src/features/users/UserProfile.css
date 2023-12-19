@@ -1,0 +1,61 @@
+.user-profile-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.user-profile-header-username{
+  margin-top: 15px;
+  margin-left: 30px;
+}
+
+.user-profile-form{
+  margin-left: 20px;
+}
+
+.user-profile-image{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: solid 2px black;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.user-profile-initials{
+  font-size: 3em;
+}
+
+.username-label{
+  text-decoration: underline;
+}
+
+.user-profile-label{
+  font-size: 1.5em;
+}
+
+.user-profile-username{
+  border: 0px;
+  pointer-events: none;
+  font-weight: bolder;
+  color: #A020F0;
+  font-size: 1.5em;
+}
+
+.user-profile-input{
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: solid 2px black;
+  font-size: 1.2em;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user-profile-save-btn{
+  margin-top: 10px;
+  background-color: #D7A1F9;
+}
+
+

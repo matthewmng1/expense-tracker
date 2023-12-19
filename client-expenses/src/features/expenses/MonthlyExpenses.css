@@ -1,0 +1,35 @@
+.monthly-expenses-year-selector-div{
+  font-size: 1.1em;
+}
+
+.monthly-expenses-year-selector{
+  font-size: .8em;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.monthly-expenses-list{
+  list-style-type: none;
+  border-left: solid 4px #A020F0;
+}
+
+.monthly-expenses-month-display{
+  background-color: transparent;
+  border: 0px;
+  font-size: 1.5em;
+}
+
+.monthly-expenses-table-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.monthly-expenses-chart{
+  display: flex;
+  justify-content: center;
+}
+
+.monthly-expenses-expensetable{
+  width: 50%;
+}

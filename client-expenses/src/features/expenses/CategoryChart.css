@@ -1,0 +1,41 @@
+.chart-main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.chart-container{
+  background-color: transparent;
+  margin: 5px;
+}
+
+.chart-items-container{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+
+.chart-items-table{
+  min-width: 250px;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.chart-items-header{
+  text-align: left;
+  border-bottom: solid 1px gray;
+}
+
+
+.chart-items-row{
+  display: flex;
+  border-bottom: solid 1px gray;
+  justify-content: space-between;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
