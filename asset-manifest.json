@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/expense-tracker/static/css/main.ba0681b1.css",
+    "main.js": "/expense-tracker/static/js/main.543a592e.js",
+    "static/media/menu2.jpg": "/expense-tracker/static/media/menu2.23515f7fe1eb60e9b081.jpg",
+    "static/media/octopus-logo-white.png": "/expense-tracker/static/media/octopus-logo-white.a124d6bb66d8164567a8.png",
+    "static/media/octopus-logo.png": "/expense-tracker/static/media/octopus-logo.9175b1c64527cdb5232e.png",
+    "index.html": "/expense-tracker/index.html",
+    "main.ba0681b1.css.map": "/expense-tracker/static/css/main.ba0681b1.css.map",
+    "main.543a592e.js.map": "/expense-tracker/static/js/main.543a592e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba0681b1.css",
+    "static/js/main.543a592e.js"
+  ]
+}
