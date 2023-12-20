@@ -26,7 +26,7 @@ const RecentTransactions = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setUserExpenses(fetchUserExpenses.slice(0, 12));
+      setUserExpenses(fetchUserExpenses);
       refetchUserExpenses();
     }
 

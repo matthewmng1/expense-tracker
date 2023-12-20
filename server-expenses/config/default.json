@@ -1,5 +1,0 @@
-{
-  "port": 3001,
-  "mongoURI": "mongodb+srv://admin:admin@cluster0.0dze4q2.mongodb.net/ExpensesDb?retryWrites=true&w=majority",
-  "jwtSecret": "6c3de3e28787e1d7788dc1eb0b4814c4c5259025afb808b57b224b8f25e07d5c95b3e8b7b400c8483b274674600489ea8096c58797cf3b46215290e37ee40b55"
-}

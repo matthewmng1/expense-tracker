@@ -58,7 +58,7 @@ const getRecentExpenses = async (req, res) => {
       $gte: req.query.lastWeekDate,
       $lte: req.query.currentDate
     }
-  })
+  }).limit(12);
   if(!recentExpenses || recentExpenses.length === 0) return res.status(204).json({ 'message': 'No recent expense data,'});
   res.json(recentExpenses);
 }
