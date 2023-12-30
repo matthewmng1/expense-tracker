@@ -31,7 +31,8 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      console.log(process.env.REACT_RENDER_URL)
+      console.log(process.env.PUBLIC_URL)
+      console.log(baseurl)
       const userData = await login({username: user, password }).unwrap()
       console.log(userData)
       dispatch(setCredentials({...userData, user: userData.username}))
