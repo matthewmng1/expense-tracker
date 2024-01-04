@@ -11,6 +11,7 @@ const connectDB = require('./config/dbConn');
 
 connectDB();
 
+
 app.use(express.json());
 app.use(cookieParser());
 
