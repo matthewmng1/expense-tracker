@@ -22,15 +22,14 @@ const DeleteExpense = ({ username, expenseId }) => {
 
   let content = (
     <div>
-    {confirmed ? (
+    {/* {confirmed ? (
       <React.Fragment>
-        <p>Are you sure you want to delete this expense?</p>
-        <button onClick={handleDelete}>Yes, Delete</button>
-        <button onClick={() => setConfirmed(false)}>Cancel</button>
+        <button className='delete-expense-btn' onClick={handleDelete}>Confirm</button>
+        <button className='delete-expense-btn' onClick={() => setConfirmed(false)}>Cancel</button>
       </React.Fragment>
-      ) : (
-        <button onClick={handleConfirmDelete}>Delete</button>
-      )}
+      ) : ( */}
+        <button className='delete-expense-btn' onClick={handleDelete}>Delete</button>
+      {/* )} */}
     </div>
   )
   return content;

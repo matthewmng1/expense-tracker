@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useEditUserExpenseMutation } from './expensesApiSlice'
+
+import DeleteExpense from "./DeleteExpense";
 import moment from 'moment';
 
 import './EditExpenseForm.css'
@@ -52,6 +54,7 @@ const EditExpenseForm = ({username, userCategories, userPaymentMethods, data, re
             <thead className='edit-expense-table-header'>
               <tr>
                 <th colSpan="2">Edit Expense</th>
+                <DeleteExpense username={username} expenseId={_id}/>
               </tr>
             </thead>
             <tbody>

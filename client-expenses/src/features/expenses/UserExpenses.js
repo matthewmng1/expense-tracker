@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useGetUserExpensesQuery } from "./expensesApiSlice";
 import { useGetUserByUsernameQuery } from "../users/usersApiSlice";
-import DeleteExpense from "./DeleteExpense";
 import EditExpenseForm from "./EditExpenseForm";
 import ExpenseTable from "./ExpenseTable";
 
@@ -53,14 +52,16 @@ const UserExpenses = () => {
       setUserExpenses(fetchUserExpenses);
       setUserCategories(fetchUserData.categories);
       setUserPaymentMethods(fetchUserData.paymentMethods)
-      const yearsSet = new Set()
+      
+      const currentYear = new Date().getFullYear()
+      const updatedYearsSet = new Set([currentYear]);
 
       fetchUserExpenses.forEach((expense) => {
         const year = new Date(expense.date).getFullYear();
-        yearsSet.add(year);
+        updatedYearsSet.add(year);
       });
 
-      setYearsSet(yearsSet);
+      setYearsSet(updatedYearsSet);
       refetchUserExpenses();
     }
   }, [isSuccess,
@@ -126,12 +127,27 @@ const UserExpenses = () => {
                 editFormDisplay={() => setShowEditExpenseForm(false)}
               />
               <button onClick={() => setShowEditExpenseForm(false)}>Cancel</button>
-              <DeleteExpense username={username} expenseId={editExpenseData._id}/>
             </div>
           )}
           </div>
         </section>
       )
+    } else if (!filteredExpenses) {
+      
+      content = 
+      
+      <div>
+        <h1>Expenses</h1>
+          <div>
+            Select Year:&nbsp;
+            <select onChange={(e) => setSelectedYear(e.target.value)}>
+              {years.map(y => (
+                <option key={y}>{y}</option>
+              ))}
+            </select>
+            <ExpenseTable data={null} editExpense={null}/>
+          </div>
+        </div>
     }
     } else if (isError && errorDetailsUserExpenses) {
     content = <p>{JSON.stringify(error, errorDetailsUserExpenses)}</p>;

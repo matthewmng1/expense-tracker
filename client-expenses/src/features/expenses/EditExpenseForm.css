@@ -82,7 +82,8 @@
 }
 
 .edit-expense-form-save-btn,
-.edit-expense-form-cancel-btn {
+.edit-expense-form-cancel-btn,
+.delete-expense-btn {
   float: inline-end;
   padding: 8px;
   margin: 5px;

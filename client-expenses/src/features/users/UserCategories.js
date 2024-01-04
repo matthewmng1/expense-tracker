@@ -29,7 +29,7 @@ const UserCategories = () => {
     if(isSuccess){
       setUserCategories(fetchUserCategories)
     }
-  }, [isSuccess, fetchUserCategories])
+  }, [isSuccess])
 
   const handleAdd = async (e) => {
     e.preventDefault();

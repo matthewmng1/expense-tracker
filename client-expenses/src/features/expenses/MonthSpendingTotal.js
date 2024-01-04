@@ -68,7 +68,7 @@ const MonthSpendingTotal = () => {
       setUserExpenses(fetchUserExpenses)
       refetch();
     }
-  }, [isSuccess, fetchUserExpenses])
+  }, [isSuccess])
   
   let content;
   if(isLoading){
