@@ -4,23 +4,23 @@ const jwt = require('jsonwebtoken')
 
 const handleLogin = async(req, res) => {
   const cookies = req.cookies;
-  console.log(cookies)
+  // console.log(cookies)
 
   const { username, password } = req.body;
-  console.log(username, password)
+  // console.log(username, password)
 
   if(!username ||
      !password)
       return res.status(400).json({ 'message': 'Username and password are required' });
   
   const foundUser = await User.findOne({ normalizedUsername: username.toLowerCase() }).exec()
-  console.log(username.toLowerCase())
-  console.log(foundUser)
+  // console.log(username.toLowerCase())
+  // console.log(foundUser)
   if(!foundUser) return res.sendStatus(401)
 
   const match = await bcrypt.compare(password, foundUser.password);
   if(match){
-    console.log("user:", foundUser.username)
+    // console.log("user:", foundUser.username)
     const username = foundUser.username
     // console.log(username)
     const roles = Object.values(foundUser.roles).filter(Boolean);

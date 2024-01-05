@@ -45,7 +45,7 @@ const editUser = async(req, res) => {
 const addUserCategory = async (req, res) => {
   const { username } = req.params;
   const { data } = req.body;
-  console.log(data)
+  // console.log(data)
 
   const user = await User.findOne({ username });
   user.addCategory(data);
@@ -66,7 +66,7 @@ const removeUserCategory = async(req, res) => {
 const addUserPaymentMethod = async (req, res) => {
   const { username } = req.params;
   const { data } = req.body;
-  console.log(data)
+  // console.log(data)
 
   const user = await User.findOne({ username });
   user.addPaymentMethod(data);

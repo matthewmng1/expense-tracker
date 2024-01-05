@@ -64,7 +64,7 @@ const getRecentExpenses = async (req, res) => {
 }
 
 const getMonthlyTotals = async (req, res) => {
-  console.log(req.params.username)
+  // console.log(req.params.username)
   const expenses = await Expense.aggregate([
     {
       $match: {user: req.params.username}
