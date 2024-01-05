@@ -6,7 +6,7 @@ import moment from 'moment';
 
 import './EditExpenseForm.css'
 const EditExpenseForm = ({username, userCategories, userPaymentMethods, data, refetch, editFormDisplay}) => {
-  console.log(data)
+  // console.log(data)
   const _id = data._id;
   const formattedDate = moment(data.date).utc().format('YYYY[-]MM[-]DD')
   const description = data.description;

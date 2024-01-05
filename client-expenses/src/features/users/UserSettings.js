@@ -47,7 +47,6 @@ const UserSettings = () => {
       </div>
   )
 
-  console.log(displayContent)
   return content;
 }
 

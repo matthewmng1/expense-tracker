@@ -73,7 +73,7 @@ const MonthSpendingTotal = () => {
   let content;
   if(isLoading){
     content = <p>Loading...</p>
-  } else if (isSuccess){
+  } else if (isSuccess && userExpenses){
     const organizedExpenses = monthSet.map((month) => {
       const monthTotal = userExpenses.filter((row) => {
         if (row._id.year === year && row._id.month === month.id) {
@@ -128,26 +128,3 @@ const MonthSpendingTotal = () => {
 }
 
 export default MonthSpendingTotal
-
-
-// <div style={{ width: 300 }}>
-//                         <Doughnut
-//                           data={{
-//                             labels: month.data.map((item) => item.category),
-//                             datasets: [
-//                               {
-//                                 label: "Expenses by Category",
-//                                 data: month.data.map((item) => item.amount),
-//                                 backgroundColor: month.data.map(() => getRandomColor()),
-//                               },
-//                             ],
-//                           }}
-//                           options={{
-//                             plugins: {
-//                               legend: {
-//                                 position: 'right',
-//                               },
-//                             },
-//                           }}
-//                         />
-//                       </div>

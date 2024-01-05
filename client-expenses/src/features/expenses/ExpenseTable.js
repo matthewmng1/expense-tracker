@@ -4,7 +4,7 @@ import './ExpenseTable.css'
 
 const ExpenseTable = ({data, editExpense}) => {
   const handleEditClick = (expenseId) => {
-    console.log(expenseId)
+    // console.log(expenseId)
     editExpense(expenseId);
   };
   

@@ -31,9 +31,8 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      console.log(process.env.REACT_APP_BASE_URL)
       const userData = await login({username: user, password }).unwrap()
-      console.log(userData)
+      // console.log(userData)
       dispatch(setCredentials({...userData, user: userData.username}))
       setUser('')
       setPassword('')

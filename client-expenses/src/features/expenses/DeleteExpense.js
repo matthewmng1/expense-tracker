@@ -13,7 +13,7 @@ const DeleteExpense = ({ username, expenseId }) => {
   const handleDelete = async (e) => {
     try{
       const response = await deleteUserExpense({username, expenseId}).unwrap()
-      console.log(response)
+      // console.log(response)
       window.location.reload()
     } catch(err){
       console.log(err)

@@ -190,25 +190,30 @@ const MonthlyExpenses = () => {
     console.log(error)
   } else {
     content = 
-      <section>
+      <section className='monthly-expenses-wrapper'>
         <h1>Monthly Expenses</h1>
+        <div className='monthly-expenses-year-selector-div'> 
           <select>
             <option>{selectedYear}</option>
           </select>
-          {monthSet.map(m => (
-            <ul key={m.month}>
-              <li>
-                <button onClick={() => handleDisplayMonth(m.month)}>{m.month}</button>
-              </li>
-              <div className={`expense-table-container ${displayMonth === m.month ? 'show' : ''}`}>
-                {displayMonth === m.month && (
-                  <div>
-                    <ExpenseTable data={null} />
-                  </div>
-                )}
-              </div>
-            </ul>
-          ))}
+        </div>
+          <div className='monthly-expenses-container'>
+            {monthSet.map(m => (
+              <ul key={m.month} className='monthly-expenses-list'>
+                <li className='monthly-expenses-list-item'>
+                  <button className='monthly-expenses-month-display' onClick={() => handleDisplayMonth(m.month)}>{m.month}</button>
+                </li>
+                <div className={`expense-table-container ${displayMonth === m.month ? 'show' : ''}`}>
+                  {displayMonth === m.month && (
+                    <div>
+                      <ExpenseTable data={null} />
+                    </div>
+                  )}
+                </div>
+              </ul>
+            ))}
+          </div>
+          
       </section>
   }
   

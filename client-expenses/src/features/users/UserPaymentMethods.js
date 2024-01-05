@@ -45,7 +45,7 @@ const UserPaymentMethods = () => {
       return;
     }
     const res = await addNewPaymentMethod({data: newPaymentMethod, username: username}).unwrap()
-    console.log(res)
+    // console.log(res)
     setNewPaymentMethod("")
     refetch();
   }
@@ -58,7 +58,7 @@ const UserPaymentMethods = () => {
   }
 
   const confirmRemove = async (e) => {
-    console.log(paymentMethodToRemove)
+    // console.log(paymentMethodToRemove)
     const res = await removePaymentMethod({paymentMethod: paymentMethodToRemove, username: username})
     console.log(res)
     setPaymentMethodToRemove("")
@@ -70,7 +70,7 @@ const UserPaymentMethods = () => {
   if(isLoading){
     content = <p>Loading...</p>
   } else if (isSuccess && userPaymentMethods.paymentMethods){
-    console.log(userPaymentMethods)
+    // console.log(userPaymentMethods)
     content = (
       <div className='payment-method-wrapper'>
         <h1>Edit Payment Methods</h1>

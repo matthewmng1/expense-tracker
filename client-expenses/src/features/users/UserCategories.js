@@ -64,9 +64,8 @@ const UserCategories = () => {
 
   
   const confirmRemove = async (e) => {
-    console.log(categoryToRemove)
     const res = await removeCategory({category: categoryToRemove, username: username})
-    console.log(res)
+    // console.log(res)
     setCategoryToRemove("")
     setConfirm("")
     refetch();
@@ -76,7 +75,7 @@ const UserCategories = () => {
   if(isLoading){
     content = <p>Loading...</p>
   } else if(isSuccess && userCategories.categories){
-    console.log(userCategories)
+    // console.log(userCategories)
       content = (
         <div className='categories-wrapper'>
           <h1>Edit Categories</h1>

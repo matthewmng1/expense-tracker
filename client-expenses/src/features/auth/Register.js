@@ -30,7 +30,7 @@ const Register = () => {
     }
     try{
       const newUserData = await register({...registerData}).unwrap()
-      console.log(newUserData)
+      // console.log(newUserData)
       setRegisterData({
         username: '',
         password: '',
