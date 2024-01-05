@@ -86,8 +86,6 @@ const UserExpenses = () => {
   if (isLoading && loadingUserExpenses) {
     content = <p>"Loading..."</p>
   } else if (isSuccess && successUserExpenses) {
-    console.log(userCategories)
-    console.log(userExpenses)
     const filterExpenses = years.map((year) => {
       const yearExpenses = userExpenses.filter((obj) => {
         const objYear = new Date(obj.date).getFullYear()

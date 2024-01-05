@@ -11,7 +11,7 @@ const MonthlyExpenses = () => {
   const { username } = useParams();
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [yearExpenses, setYearExpenses] = useState({})
-  const [years, setYears] = useState({})
+  const [years, setYears] = useState([])
   const monthSet = [
     {id: 1, month: 'January', data: {}}, 
     {id: 2, month: 'February', data: {}}, 
@@ -58,12 +58,19 @@ const MonthlyExpenses = () => {
       }
   
       if (fetchYearlyExpenses && fetchYearlyExpenses.years) {
-        setYears(fetchYearlyExpenses.years);
+        const currentYear = new Date().getFullYear()
+        const yearsSet = new Set([currentYear]);
+        fetchYearlyExpenses.years.forEach((year)=>{
+          yearsSet.add(year)
+        })
+        const yearsArr = Array.from(yearsSet)
+        setYears(yearsArr);
       } else {
         setYears({});
       }
     }
   }, [isSuccess, fetchYearlyExpenses])
+
 
   const getRandomColor = () => {
     const colors = [
