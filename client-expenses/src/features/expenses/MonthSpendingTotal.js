@@ -77,7 +77,7 @@ const MonthSpendingTotal = () => {
     const organizedExpenses = monthSet.map((month) => {
       const monthTotal = userExpenses.filter((row) => {
         if (row._id.year === year && row._id.month === month.id) {
-          console.log(row.totalSpent);
+          // console.log(row.totalSpent);
           return row.totalSpent;
       }});
       if(monthTotal.length > 0){
