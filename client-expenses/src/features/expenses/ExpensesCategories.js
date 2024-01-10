@@ -7,7 +7,6 @@ import CategoryChart from './CategoryChart';
 const ExpensesCategories = () => {
   const { username } = useParams();
   const [selectedOption, setSelectedOption] = useState("currentMonth")
-
   const [categoryExpenses, setCategoryExpenses] = useState({})
 
   const {
@@ -24,7 +23,6 @@ const ExpensesCategories = () => {
   useEffect(() => {
     if(isSuccess){
       setCategoryExpenses(fetchCategoryExpenses)
-      refetchCategoryExpenses();
     }
   }, [isSuccess, fetchCategoryExpenses])
 

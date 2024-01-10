@@ -7,7 +7,7 @@ import { useLoginMutation } from "./authApiSlice"
 
 import "./Form.css"
 
-const Login = () => {
+const Login = ({ registrationStatus }) => {
   const userRef = useRef()
   const errRef = useRef()
   const [user, setUser] = useState('')

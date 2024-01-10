@@ -1,12 +1,13 @@
 // All fields: date, description, amount, category, payment method
 // On submit, send the information to 
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import moment from 'moment';
 import { useAddNewUserExpenseMutation } from './expensesApiSlice'
 import "./NewExpense.css"
 
 const NewExpense = ({username, categories, paymentMethods, refetch, toggleDisplay}) => {
+  const errRef = useRef();
   const currentDate = moment().format('YYYY[-]MM[-]DD')
   const [expenseData, setExpenseData] = useState({
     date: currentDate,
@@ -15,6 +16,7 @@ const NewExpense = ({username, categories, paymentMethods, refetch, toggleDispla
     category: categories[0],
     paymentMethod: paymentMethods[0],
   })
+  const [errMsg, setErrMsg] = useState('')
 
   const [ addNewUserExpense ] = useAddNewUserExpenseMutation();
 
@@ -38,7 +40,9 @@ const NewExpense = ({username, categories, paymentMethods, refetch, toggleDispla
       
       window.location.reload();
     } catch (err) {
-      console.log(err)
+      if(err.status === 400){
+        setErrMsg('You must fill all inputs.')
+      }
     }
   }
 
@@ -119,6 +123,7 @@ const NewExpense = ({username, categories, paymentMethods, refetch, toggleDispla
                   </td>
                 </tr>
                 <tr>
+                <p ref={errRef} className={errMsg?"errmsg" : "offscren"}aria-live="assertive">{errMsg}</p>
                   <td className='new-expense-form-btn-container' colSpan="3">
                     <button onClick={() => toggleDisplay()} className='new-expense-form-cancel-btn'>Cancel</button>
                     <button className='new-expense-form-save-btn'>Save</button>

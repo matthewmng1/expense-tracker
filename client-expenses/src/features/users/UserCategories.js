@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetUserCategoriesQuery, useAddUserCategoryMutation, useRemoveUserCategoryMutation } from './usersApiSlice';
 
@@ -6,6 +6,7 @@ import './UserCategories.css'
 
 const UserCategories = () => {
   const { username } = useParams();
+  const errRef = useRef();
   const [userCategories, setUserCategories] = useState([])
   const [displayInput, setDisplayInput] = useState(false)
   const [newCategory, setNewCategory] = useState("")
@@ -13,6 +14,8 @@ const UserCategories = () => {
   const [addNewCategory] = useAddUserCategoryMutation();
   const [removeCategory] = useRemoveUserCategoryMutation();
   const [confirm, setConfirm] = useState("")
+  const [errMsg, setErrMsg] = useState('')
+
 
   const {
     data: fetchUserCategories,
@@ -29,25 +32,23 @@ const UserCategories = () => {
     if(isSuccess){
       setUserCategories(fetchUserCategories)
     }
-  }, [isSuccess])
+  }, [isSuccess, fetchUserCategories])
 
   const handleAdd = async (e) => {
     e.preventDefault();
 
     if (userCategories.categories.includes(newCategory)) {
-      console.log("Category", newCategory, 'already exists.');
+      setErrMsg(`Category "${newCategory}" already exists.`);
       setNewCategory("")
       return;
-    }
-    if(!newCategory){
-      console.log('Add Category field cannot be empty.')
+    } else if(!newCategory){
+      setErrMsg('"Add Category" field cannot be empty.')
       return;
-    }
+    } else {
     const res = await addNewCategory({data: newCategory, username: username}).unwrap()
-    console.log(res)
     setNewCategory("")
-    setDisplayInput(false)
     refetch();
+    }
   }
 
   const handleNewCategory = e => setNewCategory(e.target.value)
@@ -79,6 +80,7 @@ const UserCategories = () => {
       content = (
         <div className='categories-wrapper'>
           <h1>Edit Categories</h1>
+          <p ref={errRef} className={errMsg?"errmsg" : "offscren"}aria-live="assertive">{errMsg}</p>
             {displayInput ? (
                   <form onSubmit={handleAdd} className="new-category-form">
                     <input

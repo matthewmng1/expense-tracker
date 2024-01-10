@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetUserPaymentMethodsQuery, useAddUserPaymentMethodMutation, useRemoveUserPaymentMethodMutation } from './usersApiSlice'
 
@@ -6,6 +6,7 @@ import './UserPaymentMethods.css'
 
 const UserPaymentMethods = () => {
   const { username } = useParams();
+  const errRef = useRef();
   const [userPaymentMethods, setUserPaymentMethods] = useState([])
   const [displayInput, setDisplayInput] = useState(false)
   const [newPaymentMethod, setNewPaymentMethod] = useState("")
@@ -13,6 +14,8 @@ const UserPaymentMethods = () => {
   const [addNewPaymentMethod] = useAddUserPaymentMethodMutation();
   const [removePaymentMethod] = useRemoveUserPaymentMethodMutation();
   const [confirm, setConfirm] = useState("")
+  const [errMsg, setErrMsg] = useState('')
+
   
 
   const {
@@ -36,18 +39,17 @@ const UserPaymentMethods = () => {
     e.preventDefault();
 
     if (userPaymentMethods.paymentMethods.includes(newPaymentMethod)) {
-      console.log("Payment Method", newPaymentMethod, 'already exists.');
+      setErrMsg(`Payment Method "${newPaymentMethod}" already exists.`);
       setNewPaymentMethod("")
       return;
-    }
-    if(!newPaymentMethod){
-      console.log('Add Payment Method field cannot be empty.')
+    } else if(!newPaymentMethod){
+      setErrMsg(`"Add Payment Method" field cannot be empty.`)
       return;
-    }
+    } else {
     const res = await addNewPaymentMethod({data: newPaymentMethod, username: username}).unwrap()
-    // console.log(res)
     setNewPaymentMethod("")
     refetch();
+    }
   }
 
   const handleNewPaymentMethod = e => setNewPaymentMethod(e.target.value)
@@ -74,6 +76,7 @@ const UserPaymentMethods = () => {
     content = (
       <div className='payment-method-wrapper'>
         <h1>Edit Payment Methods</h1>
+        <p ref={errRef} className={errMsg?"errmsg" : "offscren"}aria-live="assertive">{errMsg}</p>
           {displayInput ? (
             <form onSubmit={handleAdd} className='payment-method-add-form'>
               <input

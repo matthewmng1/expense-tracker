@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "./authApiSlice";
 import "./Form.css"
 
-const Register = () => {
+const Register = ({ onRegisterSuccess }) => {
   const userRef = useRef();
   const errRef = useRef();
   const [registerData, setRegisterData] = useState({
@@ -20,28 +20,52 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(registerData.password !== registerData.confirmPassword) {
-      console.log("Password do not match!")
-      setRegisterData({
-        password: '',
-        confirmPassword: ''
-      })
-      return
-    }
     try{
-      const newUserData = await register({...registerData}).unwrap()
-      // console.log(newUserData)
-      setRegisterData({
-        username: '',
-        password: '',
-        confirmPassword: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-      })
-      navigate('/login')
+      if(registerData.password !== registerData.confirmPassword) {
+        setErrMsg("Password do not match.")
+        setRegisterData({
+          username: registerData.username,
+          password: '',
+          confirmPassword: '',
+          firstName: registerData.firstName,
+          lastName: registerData.lastName,
+          email: registerData.email,
+        })
+        return
+      } else if (registerData.password.length < 6){
+        setErrMsg("Password must be at least 6 characters in length.")
+        setRegisterData({
+          username: '',
+          password: '',
+          confirmPassword: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+        })
+        return
+      } else {
+        console.log(registerData)
+        const newUserData = await register({...registerData}).unwrap()
+        // console.log(newUserData)
+        setRegisterData({
+          username: '',
+          password: '',
+          confirmPassword: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+        })
+        navigate('/login')
+      }
     } catch (err) {
-      console.log(err)
+      console.log(err.status)
+      if (err.status === 409) {
+        setErrMsg('Username already in use.')
+      } else if (err.status === 400) {
+        console.log(registerData)
+        console.log(err)
+        setErrMsg('Invalid Email.')
+      }
     }
   }
 

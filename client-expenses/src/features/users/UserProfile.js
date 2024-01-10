@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from 'react-router-dom'
 import { useGetUserByUsernameQuery, useEditUserMutation } from "./usersApiSlice";
 
@@ -6,7 +6,7 @@ import './UserProfile.css'
 
 const UserProfile = () => {
   const { username } = useParams();
-  // console.log(username)
+  const msgRef = useRef();
   const [userData, setUserData] = useState({
     username: '',
     firstName: '',
@@ -14,6 +14,7 @@ const UserProfile = () => {
     email: '',
   })
   const [editUser] = useEditUserMutation();
+  const [msg, setMsg] = useState('')
 
   const { 
     data: fetchUserData,
@@ -82,10 +83,21 @@ const UserProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
+      if(!userData.email.includes('@')){
+        setMsg('Not a valid email address.')
+        return;
+      } else if (
+        userData.firstName.trim() === '' || 
+        userData.lastName.trim() === '' || 
+        userData.email.trim() === '' ){
+          setMsg('Fields cannot be left blank.')
+          return;
+        }
       const response = await editUser({
         data: userData,
         username: username
       }).unwrap();
+      setMsg('Your profile has been updated.')
       refetch()
     } catch (err){
       console.log(err)
@@ -114,7 +126,8 @@ const UserProfile = () => {
               <p className="user-profile-username">{userData.username}</p>
             </div>
           </div>
-            
+
+        <p ref={msgRef} className={msg? "msg" : "offscren"}aria-live="assertive">{msg}</p>  
         <form onSubmit={handleSubmit} className="user-profile-form">
           
           <br/>
