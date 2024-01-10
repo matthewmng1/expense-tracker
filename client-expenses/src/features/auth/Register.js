@@ -41,7 +41,7 @@ const Register = () => {
       })
       navigate('/login')
     } catch (err) {
-      setErrMsg(err)
+      console.log(err)
     }
   }
 
